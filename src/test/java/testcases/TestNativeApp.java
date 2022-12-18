@@ -8,6 +8,7 @@ import java.time.Duration;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class TestNativeApp {
@@ -24,6 +25,8 @@ public class TestNativeApp {
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		capabilities.setCapability("noReset", true);	
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+		capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "io.selendroid.testapp.HomeScreenActivity");
+		capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "io.selendroid.testapp");
 		
 		driver = new AndroidDriver(new URL("http://127.0.01:4723/wd/hub"), capabilities);
 		

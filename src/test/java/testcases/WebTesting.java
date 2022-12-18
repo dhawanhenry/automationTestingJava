@@ -1,5 +1,6 @@
 package testcases;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -11,13 +12,25 @@ import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 public class WebTesting {
 
 	public static AndroidDriver driver;
 	
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
-
+		
+		AppiumDriverLocalService service = AppiumDriverLocalService.buildService(
+				new AppiumServiceBuilder().usingDriverExecutable(new File("C:\\Program Files\\nodejs\\node.exe"))
+				.withLogFile(new File(System.getProperty("user.dir") + "\\src\\test\\resources\\logs\\log.txt"))
+				.withAppiumJS(new File("C:\\Program Files\\Appium\\resources\\app\\node_modules\\appium\\build\\lib\\main.js"))
+				.withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
+				.withArgument(GeneralServerFlag.BASEPATH, "/wd/hub"));		
+				
+		service.start();
+ 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Galaxy XCover Pro");
@@ -33,7 +46,7 @@ public class WebTesting {
 		Thread.sleep(5000);
 		
 		driver.quit();
-		
+		service.stop();
 	
 	
 	}
