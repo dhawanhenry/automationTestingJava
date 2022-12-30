@@ -29,6 +29,17 @@ public class WebTesting {
 				.withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
 				.withArgument(GeneralServerFlag.BASEPATH, "/wd/hub"));		
 				
+		/*
+		 * Short Code to start Appium Server 	
+		 * 	
+		 * AppiumServiceBuilder serviceBuilder = new AppiumServiceBuilder().usingPort(4723);
+			
+			AppiumDriverLocalService server = AppiumDriverLocalService.buildService(serviceBuilder);
+			server.start();
+		 * 
+		 * */
+		
+		
 		service.start();
  
 		DesiredCapabilities capabilities = new DesiredCapabilities();
