@@ -34,6 +34,7 @@ public class TestNativeApp {
 		driver.findElement(By.id("com.android.permissioncontroller:id/continue_button")).click();
 		driver.findElement(By.id("android:id/button1")).click();
 		
+		//Implicit Wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.quit();

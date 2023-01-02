@@ -7,6 +7,8 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -47,6 +49,8 @@ public class TestFindingElements {
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
 		
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		
+		//Implicit Wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.findElement(By.id("com.android.permissioncontroller:id/continue_button")).click();
@@ -65,8 +69,12 @@ public class TestFindingElements {
 		
 //		driver.findElement(AppiumBy.xpath("//*[contains(@text, 'Display text')]")).click();
 		
-		driver.findElement(By.xpath("//android.widget.Button[@content-desc='visibleButtonTestCD']")).click();
+//		driver.findElement(By.xpath("//android.widget.Button[@content-desc='visibleButtonTestCD']")).click();
 
+		//Explicit Wait
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("io.selendroid.testapp:id/visibleButtonTest"))).click();
 
 		driver.quit();
 		service.stop();

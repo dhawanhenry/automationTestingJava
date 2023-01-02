@@ -49,6 +49,8 @@ public class TestHardwareKeys {
 		capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
 		
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		
+		//Implicit Wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.findElement(By.id("com.android.permissioncontroller:id/continue_button")).click();
@@ -69,8 +71,6 @@ public class TestHardwareKeys {
 		Actions action = new Actions(driver);
 		action.sendKeys("Appium").perform();
 		
-		
-				
 		driver.toggleWifi();
 		Thread.sleep(3000);
 		try {

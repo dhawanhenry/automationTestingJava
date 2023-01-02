@@ -50,6 +50,8 @@ public class WebTesting {
 		capabilities.setCapability("chromeDriverExecutable", "C:\\Users\\dhawa\\node_modules\\appium\\node_modules\\appium-chromedriver\\chromedriver.exe");
 		
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+		
+		//Implicit Wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.get("https:google.com");
