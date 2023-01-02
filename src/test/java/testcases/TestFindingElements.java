@@ -48,19 +48,13 @@ public class TestFindingElements {
 		
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		Thread.sleep(3000);
 		
-		Thread.sleep(3000);		
 		driver.findElement(By.id("com.android.permissioncontroller:id/continue_button")).click();
-		Thread.sleep(3000);
 		driver.findElement(By.id("android:id/button1")).click();		
-		Thread.sleep(3000);
 		
 //		driver.findElement(By.id("io.selendroid.testapp:id/visibleButtonTest")).click();
-//		Thread.sleep(3000);		
 		
 //		driver.findElement(AppiumBy.accessibilityId("visibleButtonTestCD")).click();
-//		Thread.sleep(3000);		
 		
 //		tagName[@attribute='value'] 
 //		driver.findElement(AppiumBy.xpath("//*[@content-desc='visibleButtonTestCD']")).click();

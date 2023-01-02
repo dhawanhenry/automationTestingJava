@@ -31,12 +31,9 @@ public class TestNativeApp {
 		
 		driver = new AndroidDriver(new URL("http://127.0.01:4723/wd/hub"), capabilities);
 		
-		Thread.sleep(3000);		
 		driver.findElement(By.id("com.android.permissioncontroller:id/continue_button")).click();
-		Thread.sleep(10000);
 		driver.findElement(By.id("android:id/button1")).click();
-		
-		
+				
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		Thread.sleep(3000);

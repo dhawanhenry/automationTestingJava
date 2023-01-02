@@ -51,16 +51,11 @@ public class TestHardwareKeys {
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-		Thread.sleep(3000);		
 		driver.findElement(By.id("com.android.permissioncontroller:id/continue_button")).click();
-		Thread.sleep(3000);
 		driver.findElement(By.id("android:id/button1")).click();		
-		Thread.sleep(3000);		
 
 		driver.findElement(By.id("io.selendroid.testapp:id/buttonStartWebview")).click();
-		Thread.sleep(3000);
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
-		Thread.sleep(3000);
 		//driver.pressKey(new KeyEvent(AndroidKey.HOME));
 		driver.findElement(By.id("io.selendroid.testapp:id/my_text_field")).click();
 			
@@ -77,7 +72,6 @@ public class TestHardwareKeys {
 		
 				
 		driver.toggleWifi();
-		Thread.sleep(3000);
 		try {
 			driver.toggleAirplaneMode();
 		}catch (Throwable t) {
