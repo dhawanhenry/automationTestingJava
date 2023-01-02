@@ -65,7 +65,7 @@ public class TestFindingElements {
 		
 //		driver.findElement(AppiumBy.xpath("//*[contains(@text, 'Display text')]")).click();
 		
-		driver.findElement(By.xpath("//android.widget.LinearLayout/android.widget.Button[@content-desc='visibleButtonTestCD']")).click();
+		driver.findElement(By.xpath("//android.widget.Button[@content-desc='visibleButtonTestCD']")).click();
 
 
 		driver.quit();

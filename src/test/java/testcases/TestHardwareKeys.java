@@ -72,6 +72,7 @@ public class TestHardwareKeys {
 		
 				
 		driver.toggleWifi();
+		Thread.sleep(3000);
 		try {
 			driver.toggleAirplaneMode();
 		}catch (Throwable t) {
